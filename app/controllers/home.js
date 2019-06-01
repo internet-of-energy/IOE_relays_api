@@ -3,7 +3,7 @@ var GPIO= require('onoff').Gpio;
 var sleep = require('sleep');
 
 // The relays for transferring energy
-var relay[] = [new GPIO(14, 'out'),new GPIO(10, 'out'), new GPIO(12, 'out')];
+var relay = [new GPIO(14, 'out'),new GPIO(10, 'out'), new GPIO(12, 'out')];
 
 //turns the relay on
 relay[0].writeSync(1);
@@ -28,10 +28,10 @@ exports.relay = function(req, res) {
    var Delay_seconds = (Energy_req * 1000)/Trans_sp;
 
    //turns the relay on
-   relay[Relay.Number()].writeSync(0);
+   relay[Relay].writeSync(0);
    sleep.sleep(Delay_seconds);
    //turns the relay off
-   relay[Relay.Number()].writeSync(1);
+   relay[Relay].writeSync(1);
 
    res.json(result);
  });
