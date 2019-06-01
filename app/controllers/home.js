@@ -2,12 +2,13 @@ var DB_config = require('../../config/database.js');
 var GPIO= require('onoff').Gpio;
 var sleep = require('sleep');
 
-/* GPIO setting GPIO pins to output*/
-var relay_1 = new GPIO(14, 'out');
-var relay_2 = new GPIO(10, 'out');
-var relay_3 = new GPIO(12, 'out');
+// The relays for transferring energy
+var relay[] = [new GPIO(14, 'out'),new GPIO(10, 'out'), new GPIO(12, 'out')];
 
-relay_1.writeSync(1);
+//turns the relay on
+relay[0].writeSync(1);
+relay[1].writeSync(1);
+relay[2].writeSync(1);
 
 exports.relay = function(req, res) {
 
@@ -23,25 +24,19 @@ exports.relay = function(req, res) {
 
    //gets the relay id
    var Relay = result[0].r_id;
-
    var Trans_sp = result[0].trans_sp;
    var Delay_seconds = (Energy_req * 1000)/Trans_sp;
 
-   //relay_on(Relay);
-   relay_1.writeSync(0);
+   //turns the relay on
+   relay[Relay.Number()].writeSync(0);
    sleep.sleep(Delay_seconds);
-   relay_1.writeSync(1);
+   //turns the relay off
+   relay[Relay.Number()].writeSync(1);
 
    res.json(result);
  });
 
- function relay_on(relay_no){
-   relay_1.writeSync(0);
- }
 
- function relay_off(relay_no){
-  relay_1.writeSync(1);
- }
 
 
 }
