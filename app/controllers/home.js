@@ -27,13 +27,21 @@ exports.relay = function(req, res) {
    var Trans_sp = result[0].trans_sp;
    var Delay_seconds = (Energy_req * 1000)/Trans_sp;
 
-   relay_1.writeSync(0);
+   relay_on(Relay);
    console.log(Delay_seconds);
    Delay(Delay_seconds);
-   relay_1.writeSync(1);
+   relay_off(Relay);
 
    res.json(result);
  });
+
+ function relay_on(relay_no){
+   relay_1.writeSync(0);
+ }
+
+ function relay_off(relay_no){
+  relay_1.writeSync(1);
+ }
 
 
 }
