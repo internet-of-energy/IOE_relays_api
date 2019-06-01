@@ -3,7 +3,7 @@ var GPIO= require('onoff').Gpio;
 var Delay = require('delay');
 
 /* GPIO setting GPIO pins to output*/
-var relay_1 = new GPIO(8, 'out');
+var relay_1 = new GPIO(14, 'out');
 var relay_2 = new GPIO(10, 'out');
 var relay_3 = new GPIO(12, 'out');
 
@@ -26,13 +26,12 @@ exports.relay = function(req, res) {
    var Trans_sp = result[0].trans_sp;
    var Delay_seconds = (Energy_req * 1000)/Trans_sp;
 
-   Relay.writeSync(1);
+   relay_1.writeSync(0);
+   console.log(Delay_seconds);
    Delay(Delay_seconds);
-   Relay.writeSync(0);
+   relay_1.writeSync(1);
 
    res.json(result);
-
-  res.redirect('/home');
  });
 
 
