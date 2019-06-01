@@ -7,6 +7,7 @@ var relay_1 = new GPIO(14, 'out');
 var relay_2 = new GPIO(10, 'out');
 var relay_3 = new GPIO(12, 'out');
 
+relay_1.writeSync(1);
 
 exports.relay = function(req, res) {
 
