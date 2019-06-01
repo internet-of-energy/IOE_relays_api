@@ -32,7 +32,6 @@ exports.relay = function(req, res) {
    sleep.sleep(Delay_seconds);
    //turns the relay off
    relay[Relay].writeSync(1);
-
    res.json(result);
  });
 
