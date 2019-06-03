@@ -49,7 +49,7 @@ exports.relay_details = function(req, res) {
  var return1 = relay_details(Energy_req,Tk_batt,Sn_batt);
  var result = {return1};
 
-   //console.log(result);
+   console.log(result);
    var Trans_sp = result.return1[0].trans_sp;
    var Delay_seconds = (Energy_req * 1000)/Trans_sp;
 
