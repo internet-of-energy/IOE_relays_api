@@ -61,7 +61,7 @@ exports.relay_details = function(req, res) {
    var delay = Delay_seconds;
 
     var combine = {result,delay};
-   res.json(combine);
+    res.json(combine);
  });
 
 }
