@@ -46,7 +46,8 @@ exports.relay_details = function(req, res) {
  var Sn_batt = req.query.sn_batt;
 
 
- var result = relay_details(Energy_req,Tk_batt,Sn_batt);
+ var return = relay_details(Energy_req,Tk_batt,Sn_batt);
+ var result = {return};
 
    console.log(result);
    var Trans_sp = result[0].trans_sp;
