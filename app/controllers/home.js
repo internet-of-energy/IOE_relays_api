@@ -68,7 +68,7 @@ function relay_details(Energy_req,Tk_batt,Sn_batt){
   function (err, result, fields) {
 
    if (err) throw err;
-
+    console.log(result);
     return result;
   });
 }
