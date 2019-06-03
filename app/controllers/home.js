@@ -50,7 +50,7 @@ exports.relay_details = function(req, res) {
  var result = {return1};
 
    //console.log(result);
-   var Trans_sp = result[0].trans_sp;
+   var Trans_sp = result.return1[0].trans_sp;
    var Delay_seconds = (Energy_req * 1000)/Trans_sp;
 
   //Converts the delay to a json format
