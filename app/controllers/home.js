@@ -39,3 +39,28 @@ exports.relay = function(req, res) {
 
 
 }
+
+exports.relay_details = function(req, res) {
+
+//Takes parameters from GET request
+ var Energy_req = req.query.energy_req;
+ var Tk_batt = req.query.tk_batt;
+ var Sn_batt = req.query.sn_batt;
+
+ DB_config.connection.query("select * from relays where tk_batt = ? AND sn_batt = ?",[Tk_batt,Sn_batt],
+ function (err, result, fields) {
+
+  if (err) throw err;
+
+   //gets the relay id
+   var Relay = result[0].r_id;
+   var Trans_sp = result[0].trans_sp;
+   var Delay_seconds = (Energy_req * 1000)/Trans_sp;
+
+   res.json(result,{Delay=Delay_seconds});
+ });
+
+
+
+
+}
