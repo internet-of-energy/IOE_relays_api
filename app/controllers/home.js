@@ -48,9 +48,7 @@ exports.relay_details = function(req, res) {
 
  var result = relay_details(Energy_req,Tk_batt,Sn_batt);
 
-   //gets the relay id
-   var Relay = result[0].r_id;
-   var Trans_sp = result[0].trans_sp;
+   
    var Delay_seconds = (Energy_req * 1000)/Trans_sp;
 
   //Converts the delay to a json format
