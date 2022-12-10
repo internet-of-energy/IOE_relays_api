@@ -21,7 +21,7 @@
   "homepage": "https://github.com/Akilan1999/IOE_relays_api#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "express": "^4.17.0",
+    "express": "^4.17.3",
     "mysql": "^2.17.1",
     "onoff": "^4.1.1",
     "path": "^0.12.7",
